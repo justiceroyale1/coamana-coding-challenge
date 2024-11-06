@@ -15,12 +15,11 @@ export const useAuth = () => {
         processing.value = value
     }
 
-    const validationErrors: Ref<Record<string, string[]> | null> = ref(null)
-    const setValidationErrors = (value: Record<string, string[]>) => {
-        validationErrors.value = value
-    }
+    const validation = useValidation()
+    const { errors } = toRefs(validation);
 
     const register = async () => {
+        validation.resetErrors()
         setProcessing(true);
 
         let data = {
@@ -44,13 +43,14 @@ export const useAuth = () => {
             const err = useSanctumError(error)
 
             if (err.isValidationError) {
-                setValidationErrors(err.bag)
+                validation.setErrors(err.bag)
             }
         }
         setProcessing(false);
     }
 
     const processLogin = async () => {
+        validation.resetErrors()
         setProcessing(true)
         let credentials = {
             email: email.value,
@@ -65,7 +65,7 @@ export const useAuth = () => {
             const err = useSanctumError(error)
 
             if (err.isValidationError) {
-                setValidationErrors(err.bag)
+                validation.setErrors(err.bag)
             }
         }
 
@@ -79,7 +79,7 @@ export const useAuth = () => {
         passwordConfirmation,
         remember,
         processing,
-        validationErrors,
+        errors,
         register,
         logout,
         processLogin,

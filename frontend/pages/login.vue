@@ -10,8 +10,13 @@ useHead({
 const registrationLink = "/register";
 
 const auth = useAuth();
-const { email, password, remember, validationErrors, processing } =
-  toRefs(auth);
+const {
+  email,
+  password,
+  remember,
+  processing,
+  errors: validationErrors,
+} = toRefs(auth);
 </script>
 
 <template>

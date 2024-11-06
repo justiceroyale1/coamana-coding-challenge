@@ -3,15 +3,6 @@ import { FetchError } from 'ofetch'
 const VALIDATION_ERROR_CODE = 422
 const SERVER_ERROR_CODE = 500
 
-function mapLaravelErrorsIntoFormErrors(errors: Record<string, string[]>) {
-    return Object
-        .entries(errors)
-        .map(([key, messages]) => ({
-            path: key,
-            message: messages[0] ?? '',
-        }))
-}
-
 export const useSanctumError = (error: unknown) => {
     const isFetchError = error instanceof FetchError
     const isValidationError

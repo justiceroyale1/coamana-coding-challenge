@@ -19,7 +19,10 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return new OrderCollection(Order::paginate());
+        $orders = Order::with(['product', 'user'])
+            ->latest()
+            ->paginate();
+        return OrderResource::collection($orders);
     }
 
     /**

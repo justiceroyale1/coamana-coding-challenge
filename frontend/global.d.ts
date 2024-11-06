@@ -11,3 +11,18 @@ interface User {
     id: number
     updated_at: string
 }
+
+interface Order {
+    id: string,
+    order_number: string,
+    username: string,
+    product: string,
+    amount: string,
+    quantity: string,
+    created_at: string,
+}
+
+interface Product {
+    id: string,
+    name: string,
+}

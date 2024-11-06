@@ -63,13 +63,19 @@ If you created the `coamana_schema` database, you can use it as the value for `D
 php artisan migrate
 ```
 
-7. Start the backend server with the following command
+7. Run database seeders with the following command
+
+```sh
+php artisan db:seed
+```
+
+8. Start the backend server with the following command
 
 ```sh
 php artisan serve
 ```
 
-8. Take note of the backend's URL.
+9. Take note of the backend's URL.
 
 ### Frontend Setup
 

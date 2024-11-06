@@ -16,7 +16,7 @@ const {
   email,
   passwordConfirmation,
   processing,
-  validationErrors,
+  errors: validationErrors,
 } = toRefs(auth);
 
 const register = async () => {
