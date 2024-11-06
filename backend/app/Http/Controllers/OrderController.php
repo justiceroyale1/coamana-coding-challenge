@@ -48,8 +48,8 @@ class OrderController extends Controller
             'data' => [
                 'user_id' => $user->id,
                 'product_id' => $product->id,
-                'amount' => ($request->quantity * $product->price),
-                'quantity' => $request->quantity
+                'amount' => number_format($request->quantity * $product->price),
+                'quantity' => number_format($request->quantity)
             ]
         ];
 
@@ -61,15 +61,18 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
-    }
+        $data = [
+            'success' => true,
+            'message' => trans('response.order_found'),
+            'data' => [
+                'user_id' => $order->user_id,
+                'product_id' => $order->product_id,
+                'amount' => number_format($order->amount),
+                'quantity' => number_format($order->quantity)
+            ]
+        ];
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Order $order)
-    {
-        //
+        return response()->json($data);
     }
 
     /**

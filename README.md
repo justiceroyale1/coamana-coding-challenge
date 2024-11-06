@@ -68,3 +68,27 @@ php artisan migrate
 ```sh
 php artisan serve
 ```
+
+## Testing
+
+Create a database called `coamana_test_schema` on MySQL.
+
+Update the following values in the `/backend/.env.testing` file to match yours:
+
+```
+DB_DATABASE=coamana_test_schema
+DB_USERNAME=dbadmin
+DB_PASSWORD=password
+```
+
+CD into the backend directory with the following command:
+
+```sh
+cd backend
+```
+
+Run the tests with the following command:
+
+```sh
+php artisan test
+```
