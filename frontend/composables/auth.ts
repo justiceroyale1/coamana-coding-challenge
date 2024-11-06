@@ -8,6 +8,7 @@ export const useAuth = () => {
     const email = ref('')
     const password = ref('')
     const passwordConfirmation = ref('')
+    const remember = ref(false)
 
     const processing = ref(false);
     const setProcessing = (value: boolean) => {
@@ -52,8 +53,9 @@ export const useAuth = () => {
     const processLogin = async () => {
         setProcessing(true)
         let credentials = {
-            email: email,
-            password: password
+            email: email.value,
+            password: password.value,
+            remember: remember.value
         }
 
         try {
@@ -75,9 +77,11 @@ export const useAuth = () => {
         email,
         password,
         passwordConfirmation,
+        remember,
         processing,
         validationErrors,
         register,
-        logout
+        logout,
+        processLogin,
     }
 }
