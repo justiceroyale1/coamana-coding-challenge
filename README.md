@@ -69,6 +69,48 @@ php artisan migrate
 php artisan serve
 ```
 
+8. Take note of the backend's URL.
+
+### Frontend Setup
+
+1. Open another terminal and cd into the root directory with the following command
+
+```sh
+cd coamana-coding-challenge
+```
+
+2. CD into the backend directory with the following command
+
+```sh
+cd frontend
+```
+
+3. Install the dependencies with the following command
+
+```sh
+npm install
+```
+
+4. If the `.env` file has not been created, then create it with the following command
+
+```sh
+cp .env.example .env
+```
+
+5. Update the following values in the `.env` file to match yours. **This should match your backend url**
+
+```
+NUXT_PUBLIC_SANCTUM_BASE_URL='http://localhost:8000'
+```
+
+6. Start the frontend server with the following command
+
+```sh
+npm run dev
+```
+
+7. Open the app on your browser. Or you can click [here](http://localhost:3000).
+
 ## Testing
 
 Create a database called `coamana_test_schema` on MySQL.
@@ -81,7 +123,7 @@ DB_USERNAME=dbadmin
 DB_PASSWORD=password
 ```
 
-CD into the backend directory with the following command:
+Open another terminal in your root directory and cd into the backend directory with the following command:
 
 ```sh
 cd backend
